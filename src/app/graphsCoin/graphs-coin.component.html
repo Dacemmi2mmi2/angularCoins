@@ -1,0 +1,28 @@
+<div
+    class="block__graphs__currencies"
+    [style]="{
+        zIndex: zIndex,
+        opacity: opacity,
+        transform: transform
+    }"
+>
+    <div
+        class="to__page__table"
+        (click)="hideGraphicPage()"
+    >
+        to talbe page
+    </div>
+    <div class="list__graphs">
+        <div class="wrapper">
+            <ul *ngFor="let item of graphsListCoin">
+                <li (click)="getUrlApiGraphic(item.id, item.name)">
+                    <img [src]="item.image" [alt]="item.name"/>
+                    <p>{{ item.name }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper__graphs">
+        <svg width="100%" height="100%"></svg>
+    </div>
+</div>

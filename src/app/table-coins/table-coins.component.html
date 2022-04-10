@@ -1,0 +1,75 @@
+<div
+    class="table__currencies"
+    [style]="{
+        zIndex: zIndex,
+        opacity: opacity,
+        transform: transform
+    }"
+>
+    <div class="list__currencies">
+        <div class="wrapper">
+            <ul>
+                <li
+                    *ngFor="let item of tableListCoin"
+                    (click)="changeVisibleItemTable($event)"
+                    [class]="activateItemList(item.symbol)"
+                    [id]="item.symbol"
+                >
+                    <img [src]="item.image" [alt]="item.name"/>
+                    <p>{{ item.name }}</p>
+                    <div>✓</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper__table">
+        <div class="controls__buttons">
+            <div
+                class="sort__date"
+                (click)="sortByData()"
+            >
+                sort of date
+            </div>
+            <div
+                class="sort__price"
+                (click)="sortByPrice()"
+            >
+                sort of price
+            </div>
+            <div
+                class="export__to__csv"
+                (click)="exportToCsv()"
+            >
+                export to csv
+            </div>
+            <div
+                class="page__graphics"
+                (click)="hideTablePage()"
+            >
+                to graphics page
+            </div>
+        </div>
+        <div class="titles__table">
+            <div class="currency">Currency</div>
+            <div class="price">Price</div>
+            <div class="volume">Volume</div>
+            <div class="capital">Capital</div>
+            <div class="change">Change 30d</div>
+            <div class="date__currency">Date of currency</div>
+        </div>
+        <div class="body__table">
+            <div
+                *ngFor="let item of getDataCoin"
+                class="tr"
+                [style.display]="visibilityItemTable(item.symbol)"
+            >
+                <div class="td">{{ item.name }}</div>
+                <div class="td">{{ parsePrise(item.current_price) }}</div>
+                <div class="td">{{ parsePrise(item.total_volume) }}</div>
+                <div class="td">{{ parsePrise(item.market_cap) }}</div>
+                <div class="td">{{ presitionPercent(item.price_change_percentage_30d_in_currency) }}</div>
+                <div class="td">{{ parseDate(item.atl_date) }}</div>
+            </div>
+        </div>
+    </div>
+</div>
