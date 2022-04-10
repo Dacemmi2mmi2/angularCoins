@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { of, map } from 'rxjs';
+import { map } from 'rxjs';
 
 import { GraphsCoinComponent } from './graphsCoin/graphs-coin.component';
 import { TableCoinsComponent } from './table-coins/table-coins.component';

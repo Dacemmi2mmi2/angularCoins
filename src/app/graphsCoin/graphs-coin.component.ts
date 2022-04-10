@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { IbodyPriceApi } from '../../interfaces/app.interface';
-import { of, map } from 'rxjs';
+import { map } from 'rxjs';
 import * as D3 from "d3";
 
 @Component({
